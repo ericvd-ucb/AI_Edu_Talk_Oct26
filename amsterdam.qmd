@@ -56,6 +56,11 @@ format:
         .reveal .rungs-slide .rung-tech { display: block; font-weight: 600; color: #FDB515; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.8em; margin-bottom: 0.4em; }
         .reveal .rungs-slide .along-the-way { margin-top: 18px; padding: 10px 18px; border-left: 6px solid #FDB515; background: #F4F6FA; font-size: 0.55em; }
         .reveal .rungs-slide .along-the-way p { margin: 0; }
+        .reveal .lessons-slide .columns { display: flex !important; gap: 18px; align-items: stretch; margin-top: 0.5em; }
+        .reveal .lessons-slide .columns > .column { flex: 1; width: auto !important; }
+        .reveal .lessons-slide .column { box-sizing: border-box; background: #F4F6FA; border-top: 6px solid #FDB515; border-radius: 8px; padding: 18px 22px; font-size: 0.62em; line-height: 1.4; }
+        .reveal .lessons-slide .column h3 { font-size: 1.35em; color: #061436; margin: 0 0 0.4em; }
+        .reveal .lessons-slide .column p { margin: 0; }
         </style>
 ---
 
@@ -98,7 +103,7 @@ A first course in computing and statistics, for any major, in the browser, with 
 1 min. The original wager behind Data 8. It became one of the largest courses at Berkeley and spread far beyond it. Question for the room: what would AI literacy look like if we made the same bet?
 :::
 
-## Three lessons from a decade of scaling
+## Three lessons from a decade of scaling {.lessons-slide}
 
 [1. What do we know works?]{.kicker}
 

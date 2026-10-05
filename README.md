@@ -16,10 +16,8 @@ Slide deck for **"Teaching AI the Way We Teach Data Science: Open, hands-on, bui
 quarto render amsterdam.qmd
 ```
 
-To regenerate the PDF, open `amsterdam.html?print-pdf` in Chrome and print to PDF, or run headless Chrome:
+To regenerate the PDF (uses [DeckTape](https://github.com/astefanutti/decktape), needs Node):
 
 ```bash
-"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
-  --no-pdf-header-footer --virtual-time-budget=15000 \
-  --print-to-pdf=amsterdam.pdf "file://$PWD/amsterdam.html?print-pdf"
+npx decktape@3 reveal --size 1280x720 --load-pause 1500 "file://$PWD/amsterdam.html" amsterdam.pdf
 ```
