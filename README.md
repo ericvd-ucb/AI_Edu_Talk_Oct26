@@ -4,6 +4,8 @@ Slide deck for **"Teaching AI the Way We Teach Data Science: Open, hands-on, bui
 
 ## Slides
 
+**View online:** https://ericvd-ucb.github.io/AI_Edu_Talk_Oct26/
+
 - **HTML (reveal.js):** [`amsterdam.html`](amsterdam.html). Download and open in a browser; it's self-contained. Press `S` for speaker notes, `F` for fullscreen.
 - **PDF:** [`amsterdam.pdf`](amsterdam.pdf)
 - **Source (Quarto):** [`amsterdam.qmd`](amsterdam.qmd)
