@@ -12,10 +12,19 @@ Slide deck for **"Teaching AI the Way We Teach Data Science: Open, hands-on, bui
 - **PDF:** [`amsterdam.pdf`](amsterdam.pdf)
 - **Source (Quarto):** [`amsterdam.qmd`](amsterdam.qmd)
 
+## Second deck: "AI Education at Scale"
+
+An alternate version of the talk ("What can we learn from data science?").
+
+- **HTML:** [`amsterdam-ai-university.html`](amsterdam-ai-university.html) · view online: https://ericvd-ucb.github.io/AI_Edu_Talk_Oct26/amsterdam-ai-university.html
+- **PDF:** [`amsterdam-ai-university.pdf`](amsterdam-ai-university.pdf)
+- **Source:** [`amsterdam-ai-university.qmd`](amsterdam-ai-university.qmd) (styles in `slides.css`)
+
 ## Rebuilding
 
 ```bash
 quarto render amsterdam.qmd
+quarto render amsterdam-ai-university.qmd
 ```
 
 To regenerate the PDF (uses [DeckTape](https://github.com/astefanutti/decktape), needs Node):

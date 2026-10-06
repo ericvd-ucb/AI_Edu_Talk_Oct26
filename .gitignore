@@ -2,9 +2,5 @@
 .quarto/
 *_files/
 
-# older draft deck, not part of this repo
-amsterdam-ai-university.qmd
-Amsterdam-AI-University.html
-slides.css
+# unused draft styles
 berkeley.scss
-images/data8-lecture.png
