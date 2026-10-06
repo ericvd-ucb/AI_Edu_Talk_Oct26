@@ -1,0 +1,620 @@
+---
+title: "Teaching AI the Way We Teach Data Science"
+subtitle: "Open, hands-on, built to scale"
+author: "Eric Van Dusen"
+institute: "College of Computing, Data Science, and Society, UC Berkeley"
+date: "October 9, 2026"
+format:
+  revealjs:
+    embed-resources: true
+    footer: "AI at Sciencepark | LAB42 | Eric Van Dusen, UC Berkeley"
+    title-slide-attributes:
+      data-visibility: hidden
+    include-in-header:
+      text: |
+        <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600&display=swap" rel="stylesheet">
+        <style>
+        .reveal, .reveal h1, .reveal h2, .reveal h3, .reveal h4 { font-family: "Inter", "Helvetica Neue", Arial, sans-serif; }
+        .reveal h1, .reveal h2 { font-weight: 800; letter-spacing: -0.025em; }
+        .reveal:not(:has(.title-dark.present)) .footer { display: none !important; }
+        .reveal:has(.title-dark.present) .footer { color: rgba(255,255,255,0.7); }
+        .reveal .title-dark { text-align: center; color: #fff; }
+        .reveal .title-dark h2 { color: #fff; font-size: 1.9em; line-height: 1.1; }
+        .reveal .title-dark .subtitle { display: block; color: #FDB515; font-size: 1.1em; margin-bottom: 1em; }
+        .reveal .title-dark .byline { font-size: 0.75em; color: rgba(255,255,255,0.85); }
+        .reveal .title-dark .title-logos { display: flex; justify-content: center; align-items: center; gap: 70px; margin-top: 1.2em; }
+        .reveal .title-dark .title-logos p { margin: 0; }
+        .reveal .title-dark .title-logos img { margin: 0; height: 46px; width: auto; }
+        .reveal .title-dark .title-logos .cdss-logo { filter: brightness(0) invert(1); }
+        .reveal .statement { font-size: 0.95em; font-weight: 600; line-height: 1.3; margin-top: 0.6em; }
+        .reveal .statement-2 { font-size: 0.7em; line-height: 1.35; color: #374151; margin-top: 0.8em; padding-left: 0.6em; border-left: 4px solid #FDB515; }
+        .reveal h2 img.title-logo { height: 1.3em; width: auto; vertical-align: middle; margin: 0 0 0 0.3em; }
+        .reveal img.shot { border: 1px solid #E5E7EB; border-radius: 8px; box-shadow: 0 6px 20px rgba(0,38,118,0.15); }
+        .reveal .caption { display: block; font-size: 0.5em; color: #6B7280; text-align: center; }
+        .reveal .kicker { display: block; font-size: 0.5em; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #F58B1F; margin-bottom: 0.4em; }
+        .reveal .model-slide h2 { font-size: 1.4em; }
+        .reveal .model-slide .column:first-child { font-size: 0.72em; }
+        .reveal .model-slide li { margin-bottom: 0.2em; }
+        .reveal .model-slide pre code { font-size: 0.66em; line-height: 1.45; max-height: none; }
+        .reveal .try-text { font-size: 0.8em; }
+        .reveal img.center-logo { display: block; height: 190px; width: auto; margin: 0.8em auto 0; }
+        .reveal .lite-slide .lite-qr { text-align: center; }
+        .reveal .lite-slide .lite-qr img { width: 88%; margin: 0.2em auto 0.3em; }
+        .reveal .lite-slide .lite-qr p { margin: 0.15em 0; font-size: 0.8em; }
+        .reveal .lite-slide .column:last-child { font-size: 0.7em; }
+        .reveal .lite-slide img.lite-logo { height: 70px; width: auto; margin: 0 0 0.3em; }
+        .reveal .lite-slide li { margin-bottom: 0.15em; }
+        .reveal .lite-slide .caption { text-align: left; }
+        .reveal .rungs-slide .stairs { display: flex; align-items: flex-end; gap: 18px; height: 440px; margin-top: 0.2em; }
+        .reveal .rungs-slide .rung { flex: 1; box-sizing: border-box; padding: 16px 20px; border-radius: 10px; font-size: 0.55em; line-height: 1.35; color: #fff; }
+        .reveal .rungs-slide .rung p { margin: 0.35em 0; }
+        .reveal .rungs-slide .rung h3 { color: #fff; font-size: 1.45em; margin: 0; }
+        .reveal .rungs-slide .r1 { height: 60%; background: #3B7EA1; }
+        .reveal .rungs-slide .r2 { height: 80%; background: #1E4A8C; }
+        .reveal .rungs-slide .r3 { height: 100%; background: #061436; }
+        .reveal .rungs-slide .rung-num { display: block; font-size: 2em; font-weight: 800; color: #FDB515; line-height: 1; }
+        .reveal .rungs-slide .rung-tech { display: block; font-weight: 600; color: #FDB515; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.8em; margin-bottom: 0.4em; }
+        .reveal .rungs-slide .along-the-way { margin-top: 18px; padding: 10px 18px; border-left: 6px solid #FDB515; background: #F4F6FA; font-size: 0.55em; }
+        .reveal .rungs-slide .along-the-way p { margin: 0; }
+        .reveal .lessons-slide .columns { display: flex !important; gap: 18px; align-items: stretch; margin-top: 0.5em; }
+        .reveal .lessons-slide .columns > .column { flex: 1; width: auto !important; }
+        .reveal .lessons-slide .column { box-sizing: border-box; background: #F4F6FA; border-top: 6px solid #FDB515; border-radius: 8px; padding: 18px 22px; font-size: 0.62em; line-height: 1.4; }
+        .reveal .lessons-slide .column h3 { font-size: 1.35em; color: #061436; margin: 0 0 0.4em; }
+        .reveal .lessons-slide .column p { margin: 0; }
+        .reveal .model-slide .column:first-child { font-size: 0.64em; }
+        .reveal .big-idea { background: #061436; color: #fff; padding: 0.6em 0.9em; border-left: 10px solid #FDB515; border-radius: 6px; font-weight: 600; font-size: 0.8em; }
+        .reveal .big-idea p { margin: 0; }
+        .reveal .bottom-question { margin-top: 0.5em; padding: 0.35em 0.7em; border-left: 6px solid #FDB515; background: #F4F6FA; font-size: 0.62em; }
+        .reveal .bottom-question p { margin: 0; }
+        .reveal .flow-label { display: block; font-weight: 700; font-size: 0.6em; color: #061436; margin-bottom: 0.4em; }
+        .reveal .flow ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 22px; }
+        .reveal .flow li { position: relative; margin: 0; padding: 6px 16px; border-radius: 8px; font-size: 0.55em; line-height: 1.25; min-width: 260px; }
+        .reveal .flow li + li::before { content: "↓"; position: absolute; top: -22px; left: 22px; height: 22px; line-height: 22px; font-size: 16px; color: #8a94a6; }
+        .reveal .flow-compact ul { gap: 14px; }
+        .reveal .flow-compact li { padding: 3px 14px; font-size: 0.46em; }
+        .reveal .flow-compact li + li::before { top: -12px; height: 12px; line-height: 12px; font-size: 11px; }
+        .reveal .flow-grey li { background: #EEF0F3; color: #374151; }
+        .reveal .flow-navy li { background: #061436; color: #fff; }
+        .reveal .hflow ul { list-style: none; margin: 0.3em 0 0.6em; padding: 0; display: flex; align-items: center; gap: 0; flex-wrap: wrap; }
+        .reveal .hflow li { margin: 0; padding: 8px 20px; border-radius: 8px; background: #061436; color: #fff; font-weight: 600; font-size: 0.6em; }
+        .reveal .hflow li + li { margin-left: 44px; position: relative; }
+        .reveal .hflow li + li::before { content: "→"; position: absolute; left: -36px; color: #F58B1F; }
+        .reveal .lab2-slide .columns { font-size: 0.8em; margin-top: 0.5em; }
+        .reveal .lab2-slide .hflow ul { margin: 0.6em 0 0.4em; }
+        .reveal .lab2-slide .hflow li { font-size: 0.75em; padding: 12px 26px; }
+        .reveal .lab2-slide li { margin-bottom: 0.5em; }
+        .reveal .chips ul { list-style: none; margin: 0.4em 0 0.4em; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+        .reveal .chips li { margin: 0; padding: 14px 16px; border-radius: 8px; background: #F4F6FA; border-top: 5px solid #3B7EA1; font-size: 0.55em; font-weight: 600; color: #061436; }
+        .reveal .whatif-slide h3 { font-size: 0.85em; color: #3B7EA1; margin: 0.1em 0 0.3em; }
+        .reveal .lab-slide h3 { font-size: 0.8em; margin: 0.2em 0 0.4em; }
+        .reveal .lab-slide .flow ul { gap: 26px; }
+        .reveal .lab-slide .flow li { min-width: 340px; padding: 9px 18px; font-size: 0.6em; }
+        .reveal .lab-slide .flow li + li::before { top: -26px; height: 26px; line-height: 26px; }
+        .reveal .lab-slide .outcome { display: block; margin-top: 26px; padding: 10px 16px; border-radius: 8px; font-size: 0.58em; }
+        .reveal .lab-slide .outcome-grey { background: #FBECEC; color: #8A1C1C; }
+        .reveal .lab-slide .outcome-navy { background: #FFF4D6; color: #061436; border-left: 6px solid #FDB515; }
+        .reveal .shift-slide h3 { font-size: 0.8em; margin: 0.1em 0 0.3em; }
+        .reveal .stack-slide .contrast { padding: 12px 18px; background: #F4F6FA; border-radius: 8px; font-size: 0.62em; margin-bottom: 14px; }
+        .reveal .stack-slide .contrast p { margin: 0; }
+        .reveal .stack-slide .both { display: block; font-weight: 700; font-size: 0.68em; color: #061436; margin-top: 8px; }
+        .reveal .stack-slide .column:last-child { box-sizing: border-box; padding-left: 24px; font-size: 0.62em; }
+        .reveal .stack-slide li { margin-bottom: 0.3em; }
+        .reveal .europe-slide .column:first-child { box-sizing: border-box; padding-right: 24px; font-size: 0.7em; }
+        .reveal .europe-slide table { font-size: 0.58em; }
+        .reveal .build-wrap { display: flex; gap: 28px; align-items: stretch; margin-top: 0.3em; }
+        .reveal .build-stack { flex: 0 0 56%; display: flex; flex-direction: column; gap: 7px; }
+        .reveal .build-stack .layer { padding: 12px 22px; border-radius: 8px; font-size: 0.6em; color: #fff; }
+        .reveal .build-stack .layer p { margin: 0; }
+        .reveal .build-stack .l6 { background: #FDB515; color: #061436; }
+        .reveal .build-stack .l5 { background: #7FA7C9; }
+        .reveal .build-stack .l4 { background: #4F86B0; }
+        .reveal .build-stack .l3 { background: #2A6496; }
+        .reveal .build-stack .l2 { background: #134A7C; }
+        .reveal .build-stack .l1 { background: #061436; }
+        .reveal .build-stack .goal { outline: 4px solid #F58B1F; outline-offset: 3px; }
+        .reveal .build-side { flex: 1; display: flex; flex-direction: column; justify-content: space-between; font-size: 0.62em; line-height: 1.35; }
+        .reveal .build-side p { margin: 0; }
+        .reveal .build-side .goal-note { border-left: 6px solid #F58B1F; padding-left: 14px; }
+        .reveal .build-side .goal-note strong:first-child { color: #F58B1F; }
+        .reveal .ideas .columns { display: flex !important; gap: 16px; }
+        .reveal .ideas .columns > .column { flex: 1; width: auto !important; box-sizing: border-box; background: #F4F6FA; border-top: 6px solid #FDB515; border-radius: 8px; padding: 14px 18px; font-size: 0.52em; line-height: 1.35; }
+        .reveal .ideas .column h3 { font-size: 1.25em; color: #061436; margin: 0 0 0.3em; }
+        .reveal .ideas .column p { margin: 0; }
+        .reveal .close-slide .statement { font-size: 0.85em; margin-top: 0.5em; }
+        </style>
+---
+
+## Teaching AI the Way We Teach Data Science {.title-dark background-color="#061436"}
+
+[Open, hands-on, built to scale]{.subtitle}
+
+::: {.byline}
+**Eric Van Dusen**<br>
+College of Computing, Data Science, and Society, UC Berkeley<br>
+October 9, 2026
+:::
+
+::: {.title-logos}
+![](images/uc-berkeley.svg){.berkeley-logo fig-alt="UC Berkeley"}
+
+![](images/cdss.svg){.cdss-logo fig-alt="UC Berkeley College of Computing, Data Science, and Society"}
+:::
+
+::: notes
+I want to talk about AI education by starting somewhere slightly different: with what we learned over the last decade trying to teach data science at scale. My argument is that we already know quite a lot about how to make computational ideas accessible. But AI also changes what we need to teach, and raises a bigger question about what kind of technical infrastructure universities should depend upon.
+:::
+
+## The Data 8 Story  ![](images/data8-logo.png){.title-logo fig-alt="Data 8 logo"}
+
+[1. What do we know works?]{.kicker}
+
+:::: {.columns}
+::: {.column width="45%"}
+::: {.statement}
+A first course in computing and statistics, for any major, in the browser, with real data from day one.
+:::
+
+::: {.statement-2}
+*Largest course at UC Berkeley - up to 50% of undergraduates take it, and the gateway to Berkeley's biggest major.*
+:::
+:::
+::: {.column width="55%"}
+![](images/inferential-thinking.png){.shot fig-alt="Computational and Inferential Thinking, the open Data 8 textbook"}
+
+[inferentialthinking.com]{.caption}
+:::
+::::
+
+::: {.bottom-question}
+We didn't make students learn all the machinery before we let them do data science.
+:::
+
+::: notes
+1 min. Data 8 was an experiment in changing the order in which students encounter technical material. The traditional approach says: learn programming, then statistics, then linear algebra, and eventually you can do interesting things with data. We inverted that: give students an interesting question and real data immediately, then introduce computation and statistics as they become useful. Question for the room: what would AI literacy look like if we made the same bet?
+:::
+
+## The notebook became the laboratory {.lab2-slide}
+
+[1. What do we know works?]{.kicker}
+
+::: {.hflow}
+- Browser
+- Notebook
+- Data
+- Experiment
+:::
+
+:::: {.columns}
+::: {.column width="50%"}
+- Jupyter + Python + real data
+- Change code, immediately see what happens
+- Same environment for instructors and students
+:::
+::: {.column width="50%"}
+- Reproducible across a class
+- Works for 20 students or thousands
+- Open-source tools + open curriculum + shared infrastructure
+:::
+::::
+
+::: notes
+1 min. One piece of infrastructure was particularly important: the notebook. Students didn't have to configure a development environment before doing an experiment. They opened a browser and started investigating. Underneath that simple experience was shared infrastructure that made the environment reproducible at scale.
+:::
+
+## Three lessons from a decade of scaling {.lessons-slide}
+
+[1. What do we know works?]{.kicker}
+
+:::: {.columns}
+::: {.column width="33%"}
+### Remove friction
+JupyterHub means no installs and no laptop gap. Students meet ideas before they fight environments.
+:::
+::: {.column width="33%"}
+### Connect to disciplines
+Connector courses (like Data 88E) provide domain context that makes methods stick.
+:::
+::: {.column width="33%"}
+### Open everything
+Github Deployment, Open Stack of tools,  Open textbook, notebooks, and autograding are what let it travel.
+:::
+::::
+
+::: notes
+2 min. Openness was not ideology, it was the distribution mechanism: community colleges, other states, other countries.
+:::
+
+## Scale is more than course materials
+
+[1. What do we know works? How to get 25 community colleges to adopt it?]{.kicker}
+
+- **Infrastructure:** shared JupyterHubs through for less resourced institutions ( eg NSF Cloudbank or Cal-ICOR) 
+- **Curriculum:** open materials community colleges can adopt and adapt
+- **People:** faculty networks, workshops training, and credit that transfers
+
+::: {.big-idea}
+How much of this can we do for AI education?
+:::
+
+::: notes
+1 min bridge. The California story in one breath, then move on.
+:::
+
+## What if we did the same thing with AI? {.whatif-slide}
+
+[2. Can we adapt what we teach?]{.kicker}
+
+### Put a model in the notebook.
+
+::: {.chips}
+- Prompt it
+- Change parameters
+- Examine tokens and probabilities
+- Create embeddings
+- Add retrieval
+- Compare models
+- Build evaluations
+- Investigate failures
+:::
+
+::: {.big-idea}
+The notebook can become a laboratory for AI.
+:::
+
+::: notes
+1 min. Can we use the same pedagogical pattern for AI? Rather than beginning with a lecture on transformer architecture, give students a model. Let them manipulate it, form hypotheses about its behavior and test them. Then use those experiences to motivate the underlying ideas.
+:::
+
+## Who owns the laboratory? {.lab-slide}
+
+[2. Can we adapt what we teach?]{.kicker}
+
+:::: {.columns}
+::: {.column width="50%"}
+### Commercial AI
+
+::: {.flow .flow-grey}
+- Notebook
+- API
+- Proprietary model
+- Commercial cloud
+:::
+
+[Student learns to **consume** AI]{.outcome .outcome-grey}
+:::
+::: {.column .fragment width="50%"}
+### Open AI
+
+::: {.flow .flow-navy}
+- Notebook
+- Open-source tooling
+- Open model
+- Shared / public compute
+:::
+
+[Student can **inspect, modify, evaluate and build**]{.outcome .outcome-navy}
+:::
+::::
+
+::: notes
+2 min. The easiest way to teach AI right now is to tell students to get an API key. That is extraordinarily convenient. But if every educational experience ends at a proprietary API, we're teaching a particular relationship with technology: the student becomes a consumer of intelligence as a service.
+
+Keeping the playing field level: some versions of AI literacy risk shrinking into prompting tips and tricks. Teaching through a rented chatbot teaches a product, not a field. And closed access re-creates equity gaps: some students and institutions can pay, others cannot.
+:::
+
+## Small Open Models as teaching tools {.model-slide}
+
+[2. Can we adapt what we teach?]{.kicker}
+
+:::: {.columns}
+::: {.column width="42%"}
+You don't need a frontier model for every experiment. A small open model is just a file students can count, inspect, and test.
+
+- Parameters × bits ÷ 8 = size
+- Tokens and next-token probabilities
+- Temperature: what "randomness" means
+- The linear algebra underneath
+- "harness" - feed data in, get data out with data manipulation
+:::
+::: {.column width="58%"}
+```{.python code-line-numbers="false"}
+from transformers import AutoTokenizer, AutoModelForCausalLM
+
+name = "HuggingFaceTB/SmolLM2-135M"   # a 270 MB file
+tok = AutoTokenizer.from_pretrained(name)
+lm = AutoModelForCausalLM.from_pretrained(name)
+
+ids = tok("Amsterdam is famous for its", return_tensors="pt")
+probs = lm(**ids).logits[0, -1].softmax(-1)
+
+for p, i in zip(*probs.topk(5)):
+    print(tok.decode(i), f"{p:.0%}")
+```
+
+![](images/hugging-ollama-jupyter-face.png){.center-logo fig-alt="Hugging Face, Ollama, and Jupyter logos combined"}
+:::
+
+::::
+
+::: notes
+2 min. Demystification as literacy. We're often mesmerized by the largest frontier models, but that doesn't make them the best educational objects. For much of what we want students to learn, a one to seven billion parameter model is more than enough: downloadable, instructor-selected and tested, reproducible across a class. Actual AI models, not educational simulations.
+:::
+
+## Small Models in a Jupyter Hub 
+
+[2. Can we adapt what we teach?]{.kicker}
+
+:::: {.columns}
+::: {.column width="58%"}
+![](images/notebook-small-lm.png){.shot fig-alt="Jupyter notebook loading a small Qwen model from a local file and generating text"}
+:::
+::: {.column width="42%" .try-text}
+The model downloads into a shared location on *JupyterHub* and runs in browser. Students can inspect the model, change parameters, and see what happens, e.g. with no setup.
+
+**Admin sets up environment, prof sets up curriculum, student explores.**
+
+[[Cloudbank Classroom](https://www.cloudbank.org/training/access-cloudbank-classroom): cloudbank.org/training/access-cloudbank-classroom]{.caption}
+:::
+::::
+
+::: notes
+1 min. Live demo. Have a recorded fallback ready in case the room wifi struggles.
+:::
+
+## Small Models in the Browser {.lite-slide}
+
+[2. Can we adapt what we teach?]{.kicker}
+
+:::: {.columns}
+::: {.column width="36%" .lite-qr}
+![](images/jupyterlite-ai-qr.svg){fig-alt="QR code linking to the JupyterLite AI demo"}
+
+**Try it now**
+
+[jupyterlite.github.io/ai](https://jupyterlite.github.io/ai/lab/index.html)
+:::
+::::: {.column width="64%"}
+![](images/jupyterlite-wordmark.svg){.lite-logo fig-alt="JupyterLite"}
+
+The whole notebook, and the model, runs on your own laptop. **No account. No server. No cost.**
+
+- **jupyterlite-ai**: chat and code completion inside JupyterLite
+- **Pyodide**: Python compiled to WebAssembly
+- **WebLLM**: LLMs on your GPU through WebGPU
+- **Transformers.js**: Hugging Face models in the browser
+- **wllama**: llama.cpp compiled to WebAssembly
+
+[Thanks to Jeremy Tuloup! ]{.caption}
+:::::
+::::
+
+::: notes
+1 min. Live demo. Have the audience scan the QR code. Have a recorded fallback ready in case the room wifi struggles.
+:::
+
+## From algorithms to systems {.shift-slide}
+
+[2. Can we adapt what we teach?]{.kicker}
+
+### What counts as technical literacy?
+
+:::: {.columns}
+::: {.column width="50%"}
+[Traditional computing / ML]{.flow-label}
+
+::: {.flow .flow-grey}
+- Programming
+- Mathematics
+- Data structures
+- Algorithms
+- Machine learning
+:::
+:::
+::: {.column width="50%"}
+[Modern AI workflow]{.flow-label}
+
+::: {.flow .flow-navy .flow-compact}
+- Data
+- Models
+- APIs
+- Containers
+- Cloud
+- Deployment
+- Evaluation
+- Monitoring
+:::
+:::
+::::
+
+::: notes
+1 min. This is the part I'm less certain about, and perhaps the more provocative part. Computer science education has traditionally emphasized programming, mathematics and algorithms. Those remain incredibly important. But increasingly the unit of computation students encounter is not an algorithm. It's a system. Are we moving from teaching algorithms to teaching systems?
+:::
+
+## Students need to see the whole stack {.stack-slide}
+
+[2. Can we adapt what we teach?]{.kicker}
+
+:::: {.columns}
+::: {.column width="52%"}
+::: {.contrast}
+A student can understand **gradient descent** but have no idea how an AI application actually works.
+:::
+
+::: {.contrast}
+A student can now build an **AI application** without understanding gradient descent.
+:::
+
+[Both are educational problems.]{.both}
+:::
+::: {.column width="48%"}
+- Data engineering
+- APIs
+- Containers and reproducible environments
+- Cloud / GPUs / inference
+- MLOps / LLMOps
+- Evaluation and monitoring
+:::
+::::
+
+::: {.bottom-question}
+**Teach enough engineering that the system stops looking like magic.**
+:::
+
+::: notes
+1 min. I'm not arguing that we stop teaching mathematics and start teaching Docker. But the balance is changing. Where does the data come from? Where is the model? Where does inference happen? What runs locally and what runs in the cloud? How do we evaluate it, and how do we know when it fails?
+:::
+
+## Same notebook, three rungs {.rungs-slide}
+
+[3. What investments do we need?]{.kicker}
+
+::: {.stairs}
+::: {.rung .r1}
+[1]{.rung-num}
+
+### Browser
+[JupyterLite]{.rung-tech}
+
+Small models run on the student's own laptop. Free, private, zero setup.
+:::
+
+::: {.rung .r2}
+[2]{.rung-num}
+
+### Campus hub
+[JupyterHub]{.rung-tech}
+
+Shared model folders, curated environments, GPUs when a course needs them.
+:::
+
+::: {.rung .r3}
+[3]{.rung-num}
+
+### HPC and cloud slices
+[Jupyter as the front door]{.rung-tech}
+
+A small allocation for every student who needs one. Powerful but hard to use today, so **invest in making it easy**.
+:::
+:::
+
+::: {.along-the-way}
+**Teach the stack along the way:** environments, containers, git, job schedulers, cloud costs. DevOps is part of AI literacy.
+:::
+
+::: notes
+2 min. Same notebook, moving up the stairs as the work gets bigger. The browser proves openness is possible; the hub makes it fair; HPC slices give students real compute, if we invest in a Jupyter front door. Each step up is a chance to teach how computing infrastructure actually works.
+:::
+
+## The model question
+
+[3. What investments do we need?]{.kicker}
+
+- Today's small open models come mostly from a few labs, mostly China
+- Corporate openness can change with the next release ( e.g. OpenAI, Google, Meta)
+- Build open curriculum that is flexible enough to swap models in and out, but worth having a small open model that is always available for teaching
+
+::: notes
+1 min. Verify the latest on Meta's and other labs' release policies before Thursday.
+:::
+
+## Small + Open + Public {.europe-slide}
+
+[3. What investments do we need?]{.kicker}
+
+:::: {.columns}
+::: {.column width="42%"}
+Europe doesn't have to win the race for the **biggest model**.
+
+It can compete differently, and it already has pieces at every rung.
+
+[Plus a mandate: AI literacy under Article 4 of the EU AI Act]{.caption}
+:::
+::: {.column width="58%"}
+| Rung | European pieces |
+|---|---|
+| Browser | QuantStack, JupyterLite |
+| Campus hub | SURF and national research infrastructure |
+| Public compute | EuroHPC |
+| Models | GPT-NL, OpenEuroLLM |
+:::
+::::
+
+::: {.bottom-question}
+Can Europe build a lighter-weight, open AI ecosystem rather than simply reproducing the hyperscalers?
+:::
+
+::: notes
+1 min. The dominant AI story is a story of scale: more GPUs, more parameters, bigger data centers. But there is another competitive strategy: smaller and more efficient models, open weights, open-source software, shared public compute, university infrastructure, open educational materials, and people who understand the entire stack. Europe has an extraordinary open-source tradition, and universities are places where open tools can be developed, taught, tested and normalized. Check GPT-NL and OpenEuroLLM availability before naming them as downloadable today.
+:::
+
+## What should the university build?
+
+[3. What investments do we need?]{.kicker}
+
+::: {.build-wrap}
+::: {.build-stack}
+::: {.layer .l6}
+**Students across the disciplines**
+:::
+::: {.layer .l5 .goal}
+**Open curriculum**
+:::
+::: {.layer .l4}
+**Interactive notebooks**
+:::
+::: {.layer .l3}
+**Open-source tooling**
+:::
+::: {.layer .l2 .goal}
+**Open models**
+:::
+::: {.layer .l1}
+**Public / shared compute**
+:::
+:::
+::: {.build-side}
+::: {.goal-note}
+**Goal 1:** shared open **curriculum** that runs at multiple levels and can move between universities.
+:::
+::: {.goal-note}
+**Goal 2:** a small, fully open, multilingual **teaching model** with documented data.
+:::
+:::
+:::
+
+::: notes
+1 min. Substantial computing infrastructure underneath, but the experience for an instructor or student should remain simple: open a notebook, choose a model, run an experiment, and understand enough of the layers underneath to know what is actually happening. Not one more model, but the infrastructure and curriculum that let every student climb the ladder.
+:::
+
+## Data Science to AI {.close-slide}
+
+::: {.ideas}
+:::: {.columns}
+::: {.column width="33%"}
+### Interactive pedagogy
+We know how to make technical ideas accessible through **exploration**.
+:::
+::: {.column width="33%"}
+### Systems literacy
+Students need to understand **workflows**, not only algorithms.
+:::
+::: {.column width="33%"}
+### Open infrastructure
+Universities should help students become **builders**, not simply customers.
+:::
+::::
+:::
+
+::: {.statement}
+We are still scaling data science. Next: give everyone the ability to look inside AI.
+:::
+
+::: {.bottom-question}
+**For the panel:** who should own the infrastructure that teaches the next generation what AI is?
+:::
+
+[ericvd@berkeley.edu]{.caption}
+
+::: notes
+1 min. Ten years ago, we asked how every student could learn with data. Now we're asking how every student can learn with AI. We already know a surprising amount about how to do this. But this time, we also have to decide what kind of AI ecosystem we're teaching students to participate in. Hand off to the panel with the question.
+:::
