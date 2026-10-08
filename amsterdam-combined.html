@@ -1110,6 +1110,7 @@ src: url(data:font/ttf;base64,AAEAAAAQAQAABAAAR0RFRkZlQIQAAAT0AAAD7kdQT1M64iYtAA
 .reveal .title-dark h2 { color: #fff; font-size: 1.9em; line-height: 1.1; }
 .reveal .title-dark .subtitle { display: block; color: #FDB515; font-size: 1.1em; margin-bottom: 1em; }
 .reveal .title-dark .byline { font-size: 0.75em; color: rgba(255,255,255,0.85); }
+.reveal .title-dark .byline a { color: #FDB515; }
 .reveal .title-dark .title-logos { display: flex; justify-content: center; align-items: center; gap: 70px; margin-top: 1.2em; }
 .reveal .title-dark .title-logos p { margin: 0; }
 .reveal .title-dark .title-logos img { margin: 0; height: 46px; width: auto; }
@@ -1208,6 +1209,9 @@ src: url(data:font/ttf;base64,AAEAAAAQAQAABAAAR0RFRkZlQIQAAAT0AAAD7kdQT1M64iYtAA
 .reveal .ideas .columns > .column { flex: 1; width: auto !important; box-sizing: border-box; background: #F4F6FA; border-top: 6px solid #FDB515; border-radius: 8px; padding: 14px 18px; font-size: 0.52em; line-height: 1.35; }
 .reveal .ideas .column h3 { font-size: 1.25em; color: #061436; margin: 0 0 0.3em; }
 .reveal .ideas .column p { margin: 0; }
+.reveal .why-slide .columns > .column { font-size: 0.54em; }
+.reveal .why-slide .bottom-question { margin-top: 0.7em; font-style: italic; }
+.reveal .why-slide .caption { margin-top: 0.4em; }
 .reveal .close-slide .statement { font-size: 0.85em; margin-top: 0.5em; }
 </style>
 </head>
@@ -1236,7 +1240,7 @@ Eric Van Dusen
 <h2>Teaching AI the Way We Teach Data Science</h2>
 <p><span class="subtitle">Open, hands-on, built to scale</span></p>
 <div class="byline">
-<p><strong>Eric Van Dusen</strong><br> College of Computing, Data Science, and Society, UC Berkeley<br> October 9, 2026</p>
+<p><strong>Eric Van Dusen</strong><br> College of Computing, Data Science, and Society, UC Berkeley<br> October 9, 2026<br> <a href="https://github.com/ericvd-ucb">github.com/ericvd-ucb</a></p>
 </div>
 <div class="title-logos">
 <p><img role="img" aria-label="UC Berkeley" data-src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjI1IiBoZWlnaHQ9IjQyIiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGQ9Ik0yMDUuNDA2IDQyYzIuMTM5IDAgNC4xNDktMS41ODIgOC4xNjktMTAuMDA4IDIuNzM3LTUuOTg3IDQuNzktMTEuMjkgNi45MjgtMTYuNzIxLjY4NC0xLjc1NCAxLjAyNy0yLjA5NiAyLjA5Ni0yLjM5NS43NjktLjIxNCAxLjA2OS0uNTEzIDEuMDY5LS45ODQgMC0uNDI4LS4yNTctLjgxMy0uODk4LS44MTMtLjk0MSAwLTIuMDUzLjEyOS0zLjMzNi4xMjktMS4zMjYgMC0yLjMwOS0uMTI5LTMuMjkzLS4xMjktLjU5OSAwLS44OTguMzQzLS44OTguNzcgMCAuNDcuMjk5Ljc3Ljk4My45ODQgMS44ODIuNTEzIDIuMDUzIDEuMzI2IDEuMzI2IDMuNTUtMS4xNTUgMy41MDctMi40MzggNi44ODUtNC40MDUgMTEuMzc2LTEuNjY4LTQuMTQ5LTMuMDc5LTcuODctNC40OS0xMi4wNi0uNTE0LTEuNjI2LS4zNDItMi4zMSAxLjY2OC0yLjg2Ni43NjktLjIxNCAxLjAyNi0uNDcgMS4wMjYtLjk0IDAtLjQ3MS0uMzQyLS44MTQtLjk0MS0uODE0LTEuMjgzIDAtMi42MDkuMTI5LTQuMzYyLjEyOS0xLjg4MiAwLTMuMjUtLjEyOS00LjU3Ni0uMTI5LS42NDIgMC0uOTQxLjM4NS0uOTQxLjgxMyAwIC41MTMuMjU2Ljc3IDEuMDI2Ljk4NC45ODQuMjU2IDEuMjgzLjU5OCAxLjg4MiAyLjEzOCAyLjM1MiA1Ljg2IDQuNDQ4IDExLjAzNCA3LjE4NSAxOC4wNDgtMS44MzkgMy4zNzgtMy4yMDggNC4xNDgtNS4wNDcgNC40OS0xLjQ5Ni4yNTctMi40OCAxLjE5OC0yLjQ4IDIuMzk1IDAgLjk4NC42ODQgMi4wNTMgMi4zMDkgMi4wNTNabS0xMy4zNDMtMjkuMjFjMi43MzcgMCAzLjk3OCAyLjQ4IDMuOTc4IDMuNDY0IDAgLjM0Mi0uMTcxLjYtLjU1Ni42ODUtMi4zMS41OTgtNS4wOSAxLjE1NC03Ljk5OCAxLjY2OC41MTMtMy44OTIgMi40MzgtNS44MTcgNC41NzYtNS44MTdabS4zIDE5LjI0NWMzLjcyIDAgNi4yODYtMS44MzkgNy44MjYtMy42NzguNjg0LS44MTIuMjU3LTEuNTQtLjQyOC0xLjU0LS4xNzEgMC0uMzQyLjA4Ni0uNTEzLjE3Mi0xLjc5NiAxLjExMi0zLjIwNyAxLjcxLTUuMTMyIDEuNzEtNC4yMzQgMC02Ljc1Ny0zLjcyLTYuNzU3LTcuOTU0di0uMDg2YzQuMTkxLS41OTggOC4yOTctMS40MTEgMTIuNTMxLTIuMzk1LjU1Ni0uMTI4Ljk0LS41NTYuODEyLTEuMTk3LS42ODQtMy4wOC0zLjUwNy02LjQ1OC04LjM4Mi02LjQ1OC00Ljg3NiAwLTkuMzY2IDQuNTMzLTkuMzY2IDExLjA3NyAwIDYuMTU4IDMuOTc3IDEwLjM1IDkuNDA5IDEwLjM1Wm0tMTkuOTcyLS4zNDJjMS40MTEgMCAyLjkwOC0uMTI4IDQuNjE4LS4xMjggMS43MTEgMCAzLjI5NC4xMjggNC43MDUuMTI4LjY0MSAwIC45NDEtLjM4NS45NDEtLjgxMyAwLS40Ny0uMy0uODk4LTEuMDI3LS45ODMtMS45MjQtLjIxNC0yLjI2Ni0uNDI4LTIuMjY2LTEuMzI2LS4wODYtNC4xNDgtLjA4Ni04LjA0LS4wODYtMTEuODg5IDAtMy41NSAwLTcuNDQxLjEyOC0xNi4wOCAwLS41NTYtLjM0Mi0uNjg1LS44MTItLjU1NmE0Mi45ODIgNDIuOTgyIDAgMCAxLTYuMTE2IDEuMDY5Yy0uNzI3LjA0My0xLjAyNi4zODUtMS4wMjYuODEyIDAgLjQ3LjI5OS44MTMgMS4xMTIuOTQxIDEuODgxLjM0MiAyLjA5NS41NTYgMi4xMzggMS41NC4wODYgNC4zMi4wODYgOC4zODIuMDg2IDEyLjI3NCAwIDMuODQ5IDAgNy43NC0uMDg2IDExLjg5LS4wNDMuODk3LS4yOTkgMS4wNjgtMi4yMjQgMS4zMjUtLjc3LjA4NS0xLjAyNi41MTMtMS4wMjYuOTg0IDAgLjQyNy4yOTkuODEyLjk0MS44MTJabS05LjY2NS0xOC45MDNjMi43MzcgMCAzLjk3NyAyLjQ4IDMuOTc3IDMuNDY0IDAgLjM0Mi0uMTcxLjYtLjU1Ni42ODUtMi4zMS41OTgtNS4wODkgMS4xNTQtNy45OTcgMS42NjguNTEzLTMuODkyIDIuNDM3LTUuODE3IDQuNTc2LTUuODE3Wm0uMjk5IDE5LjI0NWMzLjcyMSAwIDYuMjg3LTEuODM5IDcuODI2LTMuNjc4LjY4NS0uODEyLjI1Ny0xLjU0LS40MjctMS41NC0uMTcxIDAtLjM0My4wODYtLjUxNC4xNzItMS43OTYgMS4xMTItMy4yMDcgMS43MS01LjEzMiAxLjcxLTQuMjM0IDAtNi43NTctMy43Mi02Ljc1Ny03Ljk1NHYtLjA4NmM0LjE5MS0uNTk4IDguMjk3LTEuNDExIDEyLjUzMS0yLjM5NS41NTYtLjEyOC45NDEtLjU1Ni44MTMtMS4xOTctLjY4NS0zLjA4LTMuNTA3LTYuNDU4LTguMzgzLTYuNDU4LTQuODc1IDAtOS4zNjYgNC41MzMtOS4zNjYgMTEuMDc3IDAgNi4xNTggMy45NzggMTAuMzUgOS40MDkgMTAuMzVabS0zMC44NzgtLjM0MmMxLjQxMiAwIDIuODIzLS4xMjggNC41MzMtLjEyOCAxLjcxMSAwIDMuMTY1LjEyOCA0LjU3Ny4xMjguNjQxIDAgLjk0LS4zODUuOTQtLjgxMyAwLS40Ny0uMjU2LS44MTItMS4wMjYtLjk4My0xLjkyNC0uMy0yLjEzOC0uNDI4LTIuMTM4LTEuMzI2LS4wNDMtMS4zNjgtLjA0My0yLjczNy0uMDQzLTQuMDYzYTYzLjAwOCA2My4wMDggMCAwIDAgMi43OC0xLjg4MWMxLjc5NiAyLjY5NCAzLjYzNSA1LjQ3NCA1LjQzMSA4LjA0LjU1Ni44MTIuODU2Ljk4MyAxLjc1NC45ODMgMS4yODMgMCAyLjg2NS0uMDQyIDQuNzA0IDAgLjY0MSAwIC45ODQtLjM4NC45ODQtLjg1NSAwLS40MjgtLjE3Mi0uODEzLTEuMDctLjg5OC0xLjE5Ny0uMTI4LTEuODM5LS43MjctMi44NjUtMi4wNTMtMS43OTYtMi40MzgtMy42NzgtNS4yMTgtNS40MzEtNy45MTIgMC0uMDQyLjA0Mi0uMDQyLjA4NS0uMDg1IDMuMjkzLTIuODY2IDUuNDc0LTUuMDQ3IDcuMS03LjE4NS4yMTMtLjMuMzQyLS41NTYuMzQyLS44MTMgMC0uNTEzLS4zNDItLjg1NS0xLjAyNy0uODEyLTIuMDEuMTctMy44NDkuMTctNi4xMTYuMDQyLS44OTgtLjA0Mi0xLjE1NC4zODUtMS4xNTQuODEzIDAgLjM4NS4yOTkuODEzLjg5OC45NDFsLjg1NS4yMTRjMS40MTIuMzQyIDEuNDEyIDEuNDk3LS4zNDIgMy4zMzYtMS44ODIgMi4wMS00LjMxOSAzLjkzNC02Ljk3MSA1LjYwMnYtNS4zMDNjMC0zLjU1IDAtNy40NDEuMTI4LTE2LjA4IDAtLjU1Ni0uMzQyLS42ODUtLjgxMi0uNTU2YTQyLjk4MiA0Mi45ODIgMCAwIDEtNi4xMTYgMS4wNjljLS43MjcuMDQzLTEuMDI2LjM4NS0xLjAyNi44MTIgMCAuNDcuMjk5LjgxMyAxLjExMi45NDEgMS44ODEuMzQyIDIuMDk1LjU1NiAyLjEzOCAxLjU0LjA4NiA0LjMyLjA4NiA4LjM4Mi4wODYgMTIuMjc0IDAgMy44NDkgMCA3Ljc0LS4wODYgMTEuODktLjA0My44OTctLjIxNCAxLjAyNi0yLjEzOCAxLjMyNS0uNzcuMTcxLTEuMDI3LjUxMy0xLjAyNy45ODQgMCAuNDI3LjMuODEyLjk0MS44MTJabS0xNS44NjYgMGMxLjM2OSAwIDIuODIzLS4xMjggNC40OS0uMTI4IDEuNjY4IDAgMy41OTMuMTI4IDQuOTYxLjEyOC41OTkgMCAuODk5LS4zODUuODk5LS44MTMgMC0uNDctLjI1Ny0uODU1LTEuMTEyLS45ODMtMi4xODEtLjI1Ny0yLjM5NS0uNDctMi40MzgtMS4zNjktLjA4Ni0yLjM1Mi0uMDg2LTQuNDQ3LS4wODYtNy4xODRWMTcuNzVjMi4yMjQtMi45NSAzLjI1MS0zLjU1IDQuMzYzLTMuNTUgMS4zMjUgMCAyLjQzNyAxLjY2OCAyLjk5MyAxLjY2OC4zIDAgLjQ3MS0uMDg1LjY4NS0uNTEzLjQyNy0uODU1Ljg1NS0xLjcxIDEuMjgzLTIuNjA4LjI1Ni0uNTU2LjEyOC0uODU2LS4zODUtMS4xOTgtMS4wMjctLjY4NC0yLjA5Ni0xLjE1NS0zLjE2NS0xLjE1NS0xLjg4MiAwLTMuNTkzIDEuNTgzLTUuNzMxIDUuMDkgMC0xLjQxMi4wNDMtMi45NTEuMDg2LTQuNjYyIDAtLjU1Ni0uMzQyLS42ODQtLjgxMy0uNTU2LTIuMjI0LjU5OS00LjMxOS45NC02LjExNiAxLjA3LS43MjcuMDg1LS45ODMuMzg0LS45ODMuODU0IDAgLjQ3MS4yNTYuODEzIDEuMDY5Ljk0MSAxLjg4Mi4zNDIgMi4wOTYuNTU2IDIuMTM4IDEuNDk3LjA4NiAyLjEzOS4wODYgNC40MDUuMDg2IDYuNzE1IDAgMi43MzcgMCA0LjgzMi0uMDg2IDcuMTg0LS4wNDIuODk5LS4xNzEgMS4xMTItMi4wNTMgMS4zNjktLjc2OS4xNzEtMS4wMjYuNTEzLTEuMDI2Ljk4NCAwIC40MjcuMy44MTIuOTQxLjgxMlpNMTA1Ljg4OSAxMi43OWMyLjczNyAwIDMuOTc3IDIuNDggMy45NzcgMy40NjQgMCAuMzQyLS4xNzEuNi0uNTU2LjY4NS0yLjMwOS41OTgtNS4wODkgMS4xNTQtNy45OTcgMS42NjguNTEzLTMuODkyIDIuNDM4LTUuODE3IDQuNTc2LTUuODE3Wm0uMjk5IDE5LjI0NWMzLjcyMSAwIDYuMjg3LTEuODM5IDcuODI3LTMuNjc4LjY4NC0uODEyLjI1Ni0xLjU0LS40MjgtMS41NC0uMTcxIDAtLjM0Mi4wODYtLjUxMy4xNzItMS43OTYgMS4xMTItMy4yMDggMS43MS01LjEzMiAxLjcxLTQuMjM0IDAtNi43NTctMy43Mi02Ljc1Ny03Ljk1NHYtLjA4NmM0LjE5MS0uNTk4IDguMjk3LTEuNDExIDEyLjUzLTIuMzk1LjU1Ni0uMTI4Ljk0MS0uNTU2LjgxMy0xLjE5Ny0uNjg0LTMuMDgtMy41MDctNi40NTgtOC4zODItNi40NTgtNC44NzYgMC05LjM2NiA0LjUzMy05LjM2NiAxMS4wNzcgMCA2LjE1OCAzLjk3NyAxMC4zNSA5LjQwOCAxMC4zNVptLTI2LjA4Ny0yLjY5NGMtMS4yODMtLjMtMS43MS0uNzI3LTEuNzUzLTIuMjY3LS4wODYtMy4yNS0uMDg2LTUuNzczLS4wODYtMTAuMzkydi0uMDg1YzcuMjctLjE3MiAxMS4wNzcgMS40NTMgMTEuMDc3IDYuNzU3IDAgMy4xMjItMi4yMjQgNi4yNDQtNi43MTUgNi4yNDQtMS4xNTQgMC0xLjg4MS0uMDg2LTIuNTIzLS4yNTdaTTc4LjM0OCA1LjUyYzAtLjg1Ni4yMTMtMS4xOTguODU1LTEuNDU0LjUxMy0uMTcxIDEuMjgzLS4yNTcgMi40OC0uMjU3IDMuNTUgMCA1LjczMSAxLjkyNSA1LjczMSA1LjY4OCAwIDIuMDk2LS42ODQgMy44NS0xLjc5NiA1LjE3NS0yLjE4MS0uMzg1LTQuNjYyLS41MTMtNy4zNTYtLjM4NSAwLTMuMzc5IDAtNS44MTYuMDg2LTguNzY3Wm00Ljk2IDI2LjQzYzcuMSAwIDExLjMzNC00LjE0OSAxMS4zMzQtOC45ODEgMC0zLjgwNi0yLjMxLTYuMjQ0LTYuMTE2LTcuNTcgMi4xMzgtMS4yODMgMy45NzgtMy42MzUgMy45NzgtNi40NTggMC00LjU3Ni0zLjgwNy03LjM5OS0xMC40NzktNy4zOTktMi44NjUgMC0zLjU1LjI1Ny02LjI0NC4yNTctMi43OCAwLTQuNDktLjIxNC01LjYwMi0uMjE0LS42ODQgMC0xLjAyNi4zODUtMS4wMjYuOTQxIDAgLjQ3LjI1Ni44NTYgMS4xNTQgMS4wMjcgMi4zMS4zNDIgMi44NjYuODEyIDIuODY2IDEuOTY3LjA0MyAzLjYzNS4wODUgNi4zNzIuMDg1IDExLjE2MiAwIDQuNzkgMCA3LjYxMy0uMDg1IDExLjI0OC0uMDQzIDEuMjQtLjQ3IDEuNTgyLTIuNzggMS43OTYtLjg5OC4xMjgtMS4xNTUuNTU2LTEuMTU1IDEuMDI2IDAgLjU1Ni4zNDIuOTQxIDEuMDI3Ljk0MSAxLjY2OCAwIDMuMjUtLjA4NSA1LjUxNi0uMDg1IDIuMTM5IDAgNC4xMDYuMzQyIDcuNTI4LjM0MlptLTM0Ljc2OC4yNTZjMy42MzUgMCA3LjAxNC0xLjAyNiAxMC4yMjEtMy4xMjIuODk4LS41NTYgMS4xNTUtMS4xNTQgMS4xNTUtMS43NTMgMC0xLjE1NS4wODUtMi4yMjQuMDQyLTMuMTY1LS4wNDItLjcyNy0uMzg0LTEuMTU0LS45ODMtMS4xNTQtLjQ3IDAtLjgxMy4yOTktLjk4NC45NC0xLjExMiAzLjcyMS00LjQ0OCA1LjczMS04LjY4MSA1LjczMS02LjI0NSAwLTEwLjk0OS01LjE3NS0xMC45NDktMTMuMDAxIDAtNy45MTIgNC40NDgtMTMuMDg3IDExLjAzNC0xMy4wODcgNC4yNzcgMCA2Ljg0MyAxLjU4MyA4LjI1NCA0LjkxOS4zLjY4NC41NTYgMS4wMjYgMS4xMTIgMS4wMjYuNTk5IDAgLjg1NS0uNDI4Ljg5OC0xLjExMi4wNDMtLjk4NC4wNDMtMi41MjMuMDQzLTMuNDY0IDAtLjY0Mi0uMjE0LTEuMTU1LTEuMTU1LTEuNjY4LTIuMjY2LTEuMjQtNS40MzEtMi4xMzgtOC44MS0yLjEzOC0xMC4wMDcgMC0xNi44NSA2Ljg4NS0xNi44NSAxNS45OTUgMCA4Ljg1MiA2LjQxNSAxNS4wNTMgMTUuNjUzIDE1LjA1M1ptLTMyLjUwMiAwYzcuMzk4IDAgMTIuMjc0LTQuNTc2IDEyLjI3NC0xMi42NTl2LTIuODY1YzAtNC44MzMgMC03LjY1NS4wNDItMTEuNTQ3LjA0My0uODk4LjQ3LTEuMjgzIDIuODIzLTEuNDk3LjgxMy0uMTI4IDEuMDctLjU1NiAxLjA3LTEuMDI2IDAtLjU1Ni0uMzQzLS45NDEtLjk4NS0uOTQxLTEuMzY4IDAtMi42OTQuMTI4LTQuNDA0LjEyOC0xLjc1NCAwLTMuMTIzLS4xMjgtNC41MzQtLjEyOC0uNjQxIDAtLjk4My4zODUtLjk4My45NCAwIC40MjguMjU2Ljg1NiAxLjExMi45ODQgMi40OC4yNTcgMi45MDguNjQyIDIuOTA4IDEuNTQuMDg1IDMuODkyLjA4NSA2LjcxNC4wODUgMTEuNTQ3djIuNTIzYzAgNi4zMy0zLjEyMiA5LjUzNy04LjM0IDkuNTM3LTUuMzQ1IDAtOC4xMjUtMy4zMzUtOC4xMjUtOS4yMzd2LTIuODIzYzAtNC44MzMgMC03LjY1NS4wODYtMTEuNTQ3IDAtLjg5OC40MjctMS4yODMgMi43OC0xLjQ5Ny44NTUtLjEyOCAxLjExMS0uNTU2IDEuMTExLTEuMDI2IDAtLjU1Ni0uMzQyLS45NDEtMS4wMjYtLjk0MS0xLjYyNSAwLTMuMjUuMTI4LTUuNDc0LjEyOFMyLjY1IDEuNjcxLjk4NCAxLjY3MWMtLjY0MiAwLS45ODQuMzg1LS45ODQuOTQgMCAuNDcxLjI1Ny44OTkgMS4xMTIgMS4wMjcgMi4zNTIuMjE0IDIuNzguNTk5IDIuNzggMS40OTcuMDg1IDMuODkyLjA4NSA2LjcxNC4wODUgMTEuNTQ3djMuMzc5YzAgNy45OTcgNC42MiAxMi4xNDUgMTIuMDYgMTIuMTQ1WiIgZmlsbD0iI2ZmZmZmZiIvPjwvc3ZnPg==" class="berkeley-logo" alt="UC Berkeley"></p>
@@ -1701,6 +1705,42 @@ overflow: hidden!important;
 display:block!important;
 }</style></aside>
 </section>
+<section id="why-small-open-models" class="slide level2 lessons-slide why-slide">
+<h2>Why small open models?</h2>
+<p><span class="kicker">3. What investments do we need?</span></p>
+<div class="columns">
+<div class="column" style="width:33%;">
+<h3 id="environment">Environment</h3>
+<p>Data centres used about <strong>485 TWh</strong> last year, roughly as much as Germany, and the IEA expects that to <strong>double by 2030</strong>. Communities are pushing back over power and water.</p>
+</div><div class="column" style="width:33%;">
+<h3 id="carbon-and-efficiency">Carbon and efficiency</h3>
+<p>Laptops and campus servers use little power when idle and need little cooling. Open-weight models trail the frontier by only <strong>about four months</strong>.</p>
+</div><div class="column" style="width:33%;">
+<h3 id="sovereignty">Sovereignty</h3>
+<p>Models on institutional servers keep control of the tools, the data and privacy. Subsidized AI-for-rent <strong>can’t last indefinitely</strong>.</p>
+</div></div>
+<div class="bottom-question">
+<p>“Educators can train students not only how to use AI models, but also how to determine when local models are preferable to cloud-based systems.”</p>
+</div>
+<p><span class="caption">Buhler, Pérez &amp; Boettiger, “<a href="https://www.nature.com/articles/d41586-026-02451-2">Scientists should shift away from AI data centres</a>”, <em>Nature</em> 656, 296–298 (2026)</span></p>
+<aside class="notes">
+<p>1 min. Three reasons beyond pedagogy, from a Nature Comment by Cassidy Buhler, Fernando Pérez (who created Jupyter) and Carl Boettiger at Berkeley’s Schmidt Center for Data Science &amp; Environment.</p>
+<p>Environment: the world’s data centres used about 485 TWh of electricity last year, similar to Germany, and the IEA expects that to double by 2030. A Gallup poll in May found 71% of Americans opposed a data centre in their local area.</p>
+<p>Carbon and efficiency: personal computers are designed for efficiency; they use little power when idle and can be cooled without much energy or water. A model that runs on a laptop today can match what top proprietary systems did a year ago; Epoch AI finds open-weight models take about four months to catch up with the frontier.</p>
+<p>Sovereignty: running open-weight models on institutional servers gives researchers control and accountability. Neither the environmental costs of AI nor the subsidized fees for access can go on indefinitely. “AI was never the work of any one company, and its future won’t be either.”</p>
+<p>The educator quote is the bridge to this talk: teach students when local models are the better choice, and how to build for local hardware.</p>
+<style type="text/css">
+span.MJX_Assistive_MathML {
+position:absolute!important;
+clip: rect(1px, 1px, 1px, 1px);
+padding: 1px 0 0 0!important;
+border: 0!important;
+height: 1px!important;
+width: 1px!important;
+overflow: hidden!important;
+display:block!important;
+}</style></aside>
+</section>
 <section id="small-open-public" class="slide level2 europe-slide">
 <h2>Small + Open + Public</h2>
 <p><span class="kicker">3. What investments do we need?</span></p>
@@ -1822,7 +1862,7 @@ display:block!important;
 <div class="bottom-question">
 <p><strong>For the panel:</strong> who should own the infrastructure that teaches the next generation what AI is?</p>
 </div>
-<p><span class="caption">ericvd@berkeley.edu</span></p>
+<p><span class="caption">ericvd@berkeley.edu · <a href="https://github.com/ericvd-ucb">github.com/ericvd-ucb</a></span></p>
 <aside class="notes">
 <p>1 min. Ten years ago, we asked how every student could learn with data. Now we’re asking how every student can learn with AI. We already know a surprising amount about how to do this. But this time, we also have to decide what kind of AI ecosystem we’re teaching students to participate in. Hand off to the panel with the question.</p>
 <style type="text/css">

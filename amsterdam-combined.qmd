@@ -22,6 +22,7 @@ format:
         .reveal .title-dark h2 { color: #fff; font-size: 1.9em; line-height: 1.1; }
         .reveal .title-dark .subtitle { display: block; color: #FDB515; font-size: 1.1em; margin-bottom: 1em; }
         .reveal .title-dark .byline { font-size: 0.75em; color: rgba(255,255,255,0.85); }
+        .reveal .title-dark .byline a { color: #FDB515; }
         .reveal .title-dark .title-logos { display: flex; justify-content: center; align-items: center; gap: 70px; margin-top: 1.2em; }
         .reveal .title-dark .title-logos p { margin: 0; }
         .reveal .title-dark .title-logos img { margin: 0; height: 46px; width: auto; }
@@ -120,6 +121,9 @@ format:
         .reveal .ideas .columns > .column { flex: 1; width: auto !important; box-sizing: border-box; background: #F4F6FA; border-top: 6px solid #FDB515; border-radius: 8px; padding: 14px 18px; font-size: 0.52em; line-height: 1.35; }
         .reveal .ideas .column h3 { font-size: 1.25em; color: #061436; margin: 0 0 0.3em; }
         .reveal .ideas .column p { margin: 0; }
+        .reveal .why-slide .columns > .column { font-size: 0.54em; }
+        .reveal .why-slide .bottom-question { margin-top: 0.7em; font-style: italic; }
+        .reveal .why-slide .caption { margin-top: 0.4em; }
         .reveal .close-slide .statement { font-size: 0.85em; margin-top: 0.5em; }
         </style>
 ---
@@ -131,7 +135,8 @@ format:
 ::: {.byline}
 **Eric Van Dusen**<br>
 College of Computing, Data Science, and Society, UC Berkeley<br>
-October 9, 2026
+October 9, 2026<br>
+[github.com/ericvd-ucb](https://github.com/ericvd-ucb)
 :::
 
 ::: {.title-logos}
@@ -517,6 +522,43 @@ A small allocation for every student who needs one. Powerful but hard to use tod
 1 min. Verify the latest on Meta's and other labs' release policies before Thursday.
 :::
 
+## Why small open models? {.lessons-slide .why-slide}
+
+[3. What investments do we need?]{.kicker}
+
+:::: {.columns}
+::: {.column width="33%"}
+### Environment
+Data centres used about **485 TWh** last year, roughly as much as Germany, and the IEA expects that to **double by 2030**. Communities are pushing back over power and water.
+:::
+::: {.column width="33%"}
+### Carbon and efficiency
+Laptops and campus servers use little power when idle and need little cooling. Open-weight models trail the frontier by only **about four months**.
+:::
+::: {.column width="33%"}
+### Sovereignty
+Models on institutional servers keep control of the tools, the data and privacy. Subsidized AI-for-rent **can't last indefinitely**.
+:::
+::::
+
+::: {.bottom-question}
+"Educators can train students not only how to use AI models, but also how to determine when local models are preferable to cloud-based systems."
+:::
+
+[Buhler, Pérez & Boettiger, "[Scientists should shift away from AI data centres](https://www.nature.com/articles/d41586-026-02451-2)", *Nature* 656, 296–298 (2026)]{.caption}
+
+::: notes
+1 min. Three reasons beyond pedagogy, from a Nature Comment by Cassidy Buhler, Fernando Pérez (who created Jupyter) and Carl Boettiger at Berkeley's Schmidt Center for Data Science & Environment.
+
+Environment: the world's data centres used about 485 TWh of electricity last year, similar to Germany, and the IEA expects that to double by 2030. A Gallup poll in May found 71% of Americans opposed a data centre in their local area.
+
+Carbon and efficiency: personal computers are designed for efficiency; they use little power when idle and can be cooled without much energy or water. A model that runs on a laptop today can match what top proprietary systems did a year ago; Epoch AI finds open-weight models take about four months to catch up with the frontier.
+
+Sovereignty: running open-weight models on institutional servers gives researchers control and accountability. Neither the environmental costs of AI nor the subsidized fees for access can go on indefinitely. "AI was never the work of any one company, and its future won't be either."
+
+The educator quote is the bridge to this talk: teach students when local models are the better choice, and how to build for local hardware.
+:::
+
 ## Small + Open + Public {.europe-slide}
 
 [3. What investments do we need?]{.kicker}
@@ -613,7 +655,7 @@ We are still scaling data science. Next: give everyone the ability to look insid
 **For the panel:** who should own the infrastructure that teaches the next generation what AI is?
 :::
 
-[ericvd@berkeley.edu]{.caption}
+[ericvd@berkeley.edu · [github.com/ericvd-ucb](https://github.com/ericvd-ucb)]{.caption}
 
 ::: notes
 1 min. Ten years ago, we asked how every student could learn with data. Now we're asking how every student can learn with AI. We already know a surprising amount about how to do this. But this time, we also have to decide what kind of AI ecosystem we're teaching students to participate in. Hand off to the panel with the question.
